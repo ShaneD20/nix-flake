@@ -9,7 +9,7 @@ curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install | sh -s -- --da
 ```
 
 ## Quickstart
-
+0. Close the wizard
 1. Clone the repo
 2. Do the following
 
