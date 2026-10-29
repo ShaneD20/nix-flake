@@ -9,13 +9,10 @@ curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install | sh -s -- --da
 ```
 
 ## Quickstart
-0. Close the wizard
-2. Clone the repo
-3. ```bash 
-cd nix-flake```
-4. Do the following
+Close the wizard and use this repo
 
 ```bash
+$ cd nix-flake
 $ nix  --experimental-features 'nix-command flakes' develop
 ```
 
