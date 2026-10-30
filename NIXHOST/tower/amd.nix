@@ -5,7 +5,7 @@
     ### Enable OpenGL ###
     graphics = {
       enable = true;
-      enable32bit = true;
+      enable32Bit = true;
     };
     amdgpu.opencl.enable = true;
   };

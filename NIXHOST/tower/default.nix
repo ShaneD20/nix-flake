@@ -7,15 +7,13 @@ specialArgs.nixpkgs.lib.nixosSystem {
     ./hardware-configuration.nix
 
     (import "${specialArgs.home-manager}/nixos")
-    (import ../../users/shane {stateVersion = specialArgs.cleanVersion;})
+    (import ../USER/shane {stateVersion = specialArgs.cleanVersion;})
 
     specialArgs.disko.nixosModules.disko
     ./disk-config.nix
     ./amd.nix
 
-    ../USER
     ../../CORE
-
     ../../GUI/plasma.nix
 
     ../../MIXIN/steam

@@ -5,8 +5,6 @@
   ...
 }: {
 
-  shell = pkgs.zsh; #needed?
-
   users.users.shane = {
     isNormalUser = true;
     description = "Shane";

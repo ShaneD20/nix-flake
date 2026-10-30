@@ -32,7 +32,6 @@
     "nix-command"
     "flakes"
   ];
-  networking.hostName = "nixos";
   time.timeZone = "America/Los_Angeles";
   networking.networkmanager.enable = true;
 
