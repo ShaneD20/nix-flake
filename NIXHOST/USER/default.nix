@@ -1,4 +1,5 @@
-{stateVersion}: {
+{stateVersion}: 
+{
   pkgs,
   config,
   lib,
@@ -27,14 +28,21 @@
       uris = ["qemu:///system"];
     };
   };
-
   home-manager.users.shane.programs.git = {
     enable = true;
     settings.user.name = "Shane";
-    settings.user.email = "shaynepalmer.d20@gmail.com";
+    settings.user.email = "sunset510@gmail.com";
     settings.core.editor = "nano";
     settings.init.defaultBranch = "main";
     lfs.enable = true;
   };
+ # home-manager.users.shane.programs.git = {
+ #   enable = true;
+ #   settings.user.name = "Shane";
+ #   settings.user.email = "shaynepalmer.d20@gmail.com";
+ #   settings.core.editor = "nano";
+ #   settings.init.defaultBranch = "main";
+ #   lfs.enable = true;
+ # };
   
 }

@@ -9,25 +9,44 @@
   
   ## Utilities ##
   environment.systemPackages = with pkgs; [
-    git
-    curl
-    wget
-    vim
-    ncdu
-    htop
-    tmux
-    nettools
-    gnumake
-    hyfetch
-    usbutils
+    curl 
+    wget 
+    btop 
+    nettools 
+    dnsutils 
+    usbutils 
     pciutils
-    dnsutils
+    alejandra
+    gnumake 
+    
+    ncdu
+    hyfetch
+    zellij
+    btop
     hwinfo
-    alejandra # Nix Code Formatting
-    pavucontrol # Audio control
-    brightnessctl # Brightness
-  ];
+    python314
 
+    cargo
+  ];
+  programs = {
+        git = {
+            enable = true;
+            package = pkgs.git;
+        };
+        firefox = {
+            enable = true;
+            package = pkgs.firefox;
+        };
+        vim = {
+            enable = true;
+            package = pkgs.vim;
+        };
+        tmux = {
+            enable = true;
+            package = pkgs.tmux;
+        };
+  };
+  
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"

@@ -14,7 +14,7 @@ specialArgs.nixpkgs.lib.nixosSystem {
     ./amd.nix
 
     ../../CORE
-    ../../GUI/plasma.nix
+    ../../GUI
 
     ../../MIXIN/steam
     ../../MIXIN/libreoffice
