@@ -4,9 +4,35 @@
     imports = [
     ./unstable.nix
   ];
+
+  # NixOS upgrade
+  # sudo nixos-rebuild switch --upgrade
+
+  # NixOS garbage collect Nix Store
+  # nix-collect-garbage
+  # nh clean all --keep 5 // nixpkgs
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  
+  nix = {
+    gc = {                      # ensure once per day (gc)
+      automatic = true;
+      persistent = true;
+      dates = "5:30";
+    };
+    settings = {
+      keep-outputs = true;        # protects active build dependancies (gc)
+      keep-derivations = true;    # protects active build dependancies (gc)
+      auto-optimise-store = true; # hard-link identical files (minimize store size)
+    };
+    settings.experimental-features = [
+      "nix-command" "flakes"
+    ];
+  };
+  time.timeZone = "America/Los_Angeles";
+  networking.networkmanager.enable = true;
+
+  nixpkgs.config.allowUnfree = true;
   ## Utilities ##
   environment.systemPackages = with pkgs; [
     curl 
@@ -24,37 +50,39 @@
     zellij
     btop
     hwinfo
-    python314
+    #python314
 
-    cargo
+    google-chrome
+
+    #--rust--#
+    rustc cargo rust-analyzer clippy rustfmt
+    #~~rust~~#
   ];
+
   programs = {
-        git = {
-            enable = true;
-            package = pkgs.git;
-        };
-        firefox = {
-            enable = true;
-            package = pkgs.firefox;
-        };
-        vim = {
-            enable = true;
-            package = pkgs.vim;
-        };
-        tmux = {
-            enable = true;
-            package = pkgs.tmux;
-        };
+    git = {
+      enable = true;
+      package = pkgs.git;
+    };
+    firefox = {
+      enable = true;
+      package = pkgs.firefox;
+    };
+    vim = {
+      enable = true;
+      package = pkgs.vim;
+    };
+    tmux = {
+      enable = true;
+      package = pkgs.tmux;
+    };
+    chromium = {
+      enable = true;
+     # package = pkgs.google-chrome; # chromium does not exist
+    };
   };
-  
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  time.timeZone = "America/Los_Angeles";
-  networking.networkmanager.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
+
 
   # Select internationalisation propserties.
   i18n.defaultLocale = "en_US.UTF-8";

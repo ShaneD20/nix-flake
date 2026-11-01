@@ -3,6 +3,7 @@
 {
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 5;  # only hold 5 generations
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "tower";

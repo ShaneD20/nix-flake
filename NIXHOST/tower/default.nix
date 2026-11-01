@@ -7,7 +7,7 @@ specialArgs.nixpkgs.lib.nixosSystem {
     ./hardware-configuration.nix
 
     (import "${specialArgs.home-manager}/nixos")
-    (import ../USER/shane {stateVersion = specialArgs.cleanVersion;})
+    (import ../USER {stateVersion = specialArgs.cleanVersion;})
 
     specialArgs.disko.nixosModules.disko
     ./disk-config.nix
@@ -16,6 +16,7 @@ specialArgs.nixpkgs.lib.nixosSystem {
     ../../CORE
     ../../GUI
 
+    ../../MIXIN/flatpak # needed for plasma 6 Discover?
     ../../MIXIN/steam
     ../../MIXIN/libreoffice
     ../../MIXIN/docker
