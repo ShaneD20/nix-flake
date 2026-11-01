@@ -15,10 +15,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   nix = {
-    gc = {                      # ensure once per day (gc)
+    gc = {               
       automatic = true;
       persistent = true;
-      dates = "5:30";
+      dates = "*-02,06,10-01 5:00"; # every 4 months
     };
     settings = {
       keep-outputs = true;        # protects active build dependancies (gc)
@@ -52,7 +52,7 @@
     hwinfo
     #python314
 
-    google-chrome
+    #google-chrome
 
     #--rust--#
     rustc cargo rust-analyzer clippy rustfmt
@@ -77,8 +77,7 @@
       package = pkgs.tmux;
     };
     chromium = {
-      enable = true;
-     # package = pkgs.google-chrome; # chromium does not exist
+      enable = true;  #package = pkgs.chromium; #chromium is unique?
     };
   };
 

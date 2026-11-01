@@ -16,7 +16,7 @@ specialArgs.nixpkgs.lib.nixosSystem {
     ../../CORE
     ../../GUI
 
-    ../../MIXIN/flatpak # needed for plasma 6 Discover?
+    ../../MIXIN/flatpak # needed for plasma 6 Discover | Discord
     ../../MIXIN/steam
     ../../MIXIN/libreoffice
     ../../MIXIN/docker
