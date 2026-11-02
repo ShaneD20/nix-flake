@@ -75,7 +75,12 @@
     };
   };
 
-
+  # screensharing
+  xdg.portal = {
+    enable = true;
+    #extraPortals = [ pkgs.xdg-desktop-portal-kde ];
+    #config.common.default = "*";
+  };
 
   # Select internationalisation propserties.
   i18n.defaultLocale = "en_US.UTF-8";

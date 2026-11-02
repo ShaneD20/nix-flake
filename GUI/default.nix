@@ -6,7 +6,7 @@
     displayManager.sddm = {
       enable = true;
       wayland.enable = true;
-      compositor = "kwin";
+      wayland.compositor = "kwin";
     };
 
     # Audio
@@ -20,8 +20,4 @@
     };
     printing.enable = true;
   };
-
-  # screensharing
-  xdg.portal.enable = true; 
-  xdg.portal.extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
 }
