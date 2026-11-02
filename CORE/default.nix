@@ -52,8 +52,6 @@
     hwinfo
     #python314
 
-    #google-chrome
-
     #--rust--#
     rustc cargo rust-analyzer clippy rustfmt
     #~~rust~~#
@@ -98,24 +96,16 @@
   };
 
   services = {
-    xserver = { # X11 windowing system.
-      enable = true; 
-      xkb.variant = "";
-      xkb.layout = "us";
-    };
-
-    pulseaudio.enable = false; # Enable sound with pipewire.
-    pipewire = { # Audio
+    # Audio
+    pulseaudio.enable = false; # disable for pipewire (lower latency).
+    pipewire = { 
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-      # If you want to use JACK applications, uncomment this
-      #jack.enable = true;
 
-      # use the example session manager (no others are packaged yet so this is enabled by default,
-      # no need to redefine it in your config for now)
-      #media-session.enable = true;
+      #jack.enable = true; # If you want to use JACK applications, uncomment this
+      #media-session.enable = true; # use the example session manager (no others are packaged yet so this is enabled by default  # no need to redefine it in your config for now)
     };
 
     printing.enable = true;
@@ -126,7 +116,6 @@
 
   fonts = {
     fontDir.enable = true;
-
     enableDefaultPackages = true;
     packages = with pkgs; [
       ubuntu-classic
