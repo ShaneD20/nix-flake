@@ -9,6 +9,8 @@
   users.groups.libvirtd.members = ["shane"];
   virtualisation.spiceUSBRedirection.enable = true;
 
+  virtualisation.docker.enable = true;
+
   virtualisation.libvirtd.enable = true;
   programs.dconf.enable = true; # virt-manager requires dconf to remember settings
   environment.systemPackages = with pkgs; [

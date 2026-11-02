@@ -15,5 +15,6 @@
       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     '';
   };
-  
+
+  programs.chromium.enable = true;  #no package, chromium is unique
 }

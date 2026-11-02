@@ -5,15 +5,8 @@
     ./unstable.nix
   ];
 
-  # NixOS upgrade
-  # sudo nixos-rebuild switch --upgrade
-
-  # NixOS garbage collect Nix Store
   # nix-collect-garbage
   # nh clean all --keep 5 // nixpkgs
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   nix = {
     gc = {               
       automatic = true;
@@ -33,7 +26,7 @@
   networking.networkmanager.enable = true;
 
   nixpkgs.config.allowUnfree = true;
-  ## Utilities ##
+
   environment.systemPackages = with pkgs; [
     curl 
     wget 
@@ -50,6 +43,9 @@
     zellij
     btop
     hwinfo
+
+    libreoffice
+    claude-code 
     #python314
   ];
 
@@ -69,9 +65,6 @@
     tmux = {
       enable = true;
       package = pkgs.tmux;
-    };
-    chromium = {
-      enable = true;  #package = pkgs.chromium; #chromium is unique?
     };
   };
 
