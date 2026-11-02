@@ -4,6 +4,9 @@
   lib,
   ...
 }: {
+
+  hardware.steam-hardware.enable = true;
+
   programs.steam = {
     enable = true;
     # gamescopeSession.enable = true;
@@ -12,9 +15,7 @@
     # RADV_DEBUG=nofastclears,nohiz # AMD 580 relevants
   };
 
-  environment.systemPackages = with pkgs; [
-    steam-run
-  ];
+  environment.systemPackages = [ pkgs.steam-run ];
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
@@ -22,5 +23,6 @@
       "steam-original"
       "steam-run"
     ];
-    boot.kernelPackages = pkgs.linuxPackages_latest;
+    
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 }

@@ -2,20 +2,17 @@
 { config, lib, pkgs, ... }: {
 
   hardware = {
-    ### Enable OpenGL ###
     graphics = {
-      enable = true;
-      enable32Bit = true;
+      enable = true;      # OpenGL support
+      enable32Bit = true; # 32 Bit Steam games
     };
     amdgpu.opencl.enable = true;
   };
-
-  # Workaround for amdgpu "ring gfx timeout" / GPU resets hanging the whole
-  # session during DX12-via-vkd3d games (observed with Nightreign on this
-  # RX 580 / Polaris10 card).
-  boot.kernelParams = ["amdgpu.cwsr_enable=0"];
-
   environment.systemPackages = with pkgs; [lact nvtopPackages.amd];
   systemd.packages = with pkgs; [lact nvtopPackages.amd];
   systemd.services.lactd.wantedBy = ["multi-user.target"];
+
+  # RX 580 Specific
+  programs.gamemode.enable = true;  # 580 needs the help
+  #boot.kernelParams = ["amdgpu.cwsr_enable=0"]; # 0 disables compute wave save/restore
 }

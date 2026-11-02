@@ -12,11 +12,13 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  
+  hardware.enableRedistributableFirmware = true;  # might help 580 GPU
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

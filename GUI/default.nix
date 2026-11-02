@@ -10,5 +10,4 @@
       wayland.enable = true; # Enable experimental Wayland support for SDDM
     };
   };
-
 }

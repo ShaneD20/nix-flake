@@ -41,4 +41,4 @@ nixos.boot: check-env check-target
 	sudo nixos-rebuild boot --flake .#${TARGET}
 
 nixos.upgrade: check-env check-target update nixos.build
-	sudo nixos-rebuild switch --flake .#${TARGET}
+	sudo nixos-rebuild switch --upgrade --flake .#${TARGET}
