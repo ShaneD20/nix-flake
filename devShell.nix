@@ -12,14 +12,21 @@
     pkgs.mkShell {
       nativeBuildInputs = with pkgs; [
         nix
+        nixos-rebuild
+        nixVersions.latest
+        
         vim
         home-manager
-        git
         gnumake
         alejandra
-        nixVersions.latest
-        nixos-rebuild
         disko
+        pkg-config
+
+        #--c-----#
+        gcc gdb cmake valgrind
+
+        #--rust--#
+        rustc cargo rust-analyzer clippy rustfmt
       ];
     };
 }

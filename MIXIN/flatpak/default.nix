@@ -5,7 +5,7 @@
 }: {
   imports = [];
 
-  xdg.portal.enable = true;
+  #needed for Discord and Chromium
   services.flatpak.enable = true;
 
   systemd.services.flatpak-repo = {
