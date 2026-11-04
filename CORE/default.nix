@@ -1,7 +1,7 @@
 {
   config, pkgs, ...
 }: {
-    imports = [
+  imports = [
     ./unstable.nix
   ];
 
@@ -22,9 +22,12 @@
       "nix-command" "flakes"
     ];
   };
-  time.timeZone = "America/Los_Angeles";
-  networking.networkmanager.enable = true;
 
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 5;  # only hold 5 generations
+  boot.loader.efi.canTouchEfiVariables = true;
+  
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
@@ -37,16 +40,12 @@
     pciutils
     alejandra
     gnumake 
-    
     ncdu
     hyfetch
     zellij
     btop
     hwinfo
-
     libreoffice
-    claude-code 
-    #python314
   ];
 
   programs = {
@@ -68,12 +67,39 @@
     };
   };
 
+  programs.chromium.enable = true;  #no package, chromium is unique
+  #needed for Discord and Chromium
+  services.flatpak.enable = true;
+  systemd.services.flatpak-repo = {
+    wantedBy = ["multi-user.target"];
+    path = [pkgs.flatpak];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
+
   # screensharing
   xdg.portal = {
     enable = true;
     #extraPortals = [ pkgs.xdg-desktop-portal-kde ];
     #config.common.default = "*";
   };
+
+  # Audio
+  services = {  
+    pulseaudio.enable = false; # disable for pipewire (lower latency).
+    pipewire = { 
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      #jack.enable = true; # If you want to use JACK applications
+    };
+    printing.enable = true;
+  };
+
+  networking.networkmanager.enable = true;
+  time.timeZone = "America/Los_Angeles";
 
   # Select internationalisation propserties.
   i18n.defaultLocale = "en_US.UTF-8";

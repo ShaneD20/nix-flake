@@ -19,6 +19,11 @@
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
   
-  hardware.enableRedistributableFirmware = true;  # might help 580 GPU
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware = {
+    graphics.enable = true;      # OpenGL support
+    graphics.enable32Bit = true; # 32 Bit apps
+    amdgpu.opencl.enable = true;
+    enableRedistributableFirmware = true;  # needed for 580 GPU
+    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  };
 }

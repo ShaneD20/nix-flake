@@ -26,7 +26,7 @@
         gcc gdb cmake valgrind
 
         #--rust--#
-        rustc cargo rust-analyzer clippy rustfmt
+        # rustc cargo rust-analyzer clippy rustfmt
       ];
     };
 }

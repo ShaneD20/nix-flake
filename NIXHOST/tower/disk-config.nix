@@ -15,6 +15,7 @@
           mountOptions = ["umask=0077"];
         };
       };
+      
       swap = {
         size = "32G"; # 2G for a VM free system
         content = {

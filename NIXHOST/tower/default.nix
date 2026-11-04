@@ -11,12 +11,11 @@ specialArgs.nixpkgs.lib.nixosSystem {
 
     specialArgs.disko.nixosModules.disko
     ./disk-config.nix
-    ./amd.nix
 
     ../../CORE
     ../../GUI
     ../../MIXIN/virtualization
-    ../../MIXIN/flatpak # needed for Plasma 6 Discover
     ../../MIXIN/steam
+    ../../MIXIN/rust
   ];
 }

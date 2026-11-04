@@ -1,13 +1,11 @@
 { lib, config, pkgs, ... }:
-
 {
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 5;  # only hold 5 generations
-  boot.loader.efi.canTouchEfiVariables = true;
-
   networking.hostName = "tower";
   services.fwupd.enable = true;
+
+  environment.systemPackages = with pkgs; [lact nvtopPackages.amd];
+  systemd.packages = with pkgs; [lact nvtopPackages.amd];
+  systemd.services.lactd.wantedBy = ["multi-user.target"];
 
   # Onboard Intel Wireless-AC 3168 (wlp4s0) stays off; only the MediaTek
   # MT7922 card (wlp8s0, mt7921e) should be used for wifi. netdevs.enable
