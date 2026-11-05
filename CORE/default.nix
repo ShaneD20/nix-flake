@@ -68,8 +68,7 @@
   };
 
   programs.chromium.enable = true;  #no package, chromium is unique
-  #needed for Discord and Chromium
-  services.flatpak.enable = true;
+  services.flatpak.enable = true;   #needed for Discord and Chromium
   systemd.services.flatpak-repo = {
     wantedBy = ["multi-user.target"];
     path = [pkgs.flatpak];

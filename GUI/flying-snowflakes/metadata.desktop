@@ -1,0 +1,10 @@
+[SddmGreeterTheme]
+Name=Flying Snowflakes
+Description=NixOS snowflakes fly out of the dark, Windows 3.1 Flying Logo style, behind a smoked-glass sci-fi login.
+Type=sddm-theme
+Version=1.0
+MainScript=Main.qml
+ConfigFile=theme.conf
+Theme-Id=flying-snowflakes
+Theme-API=2.0
+QtVersion=6

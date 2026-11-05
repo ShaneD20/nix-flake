@@ -14,17 +14,13 @@ $ nix-shell -p git
 $ nix shell nixpkgs#get
 ```
 
-## Quickstart
+## Installation
 Close the wizard and use this repo
 
+### NixOS Build
 ```bash
 $ cd nix-flake
-$ nix  --experimental-features 'nix-command flakes' develop
-```
-
-or
-```bash
-$ ./startDevelop
+$ nix --experimental-features 'nix-command flakes' develop
 ```
 
 ```bash
@@ -39,9 +35,14 @@ $ make nixos.switch host=<hostname>
 
 where `<hostname>` is a host found in the `./hosts` diretory.
 
+### Wallpaper
+```bash
+kpackagetool6 --type Plasma/Wallpaper --install ./org.wall.snowflakes
+```
+
 ## Inventory
 
 ### Gaming Rigs
 | Hostname      | Model                              | Type    |
 |---------------|------------------------------------|---------|
-| shanecomp   |  AMD Ryzen 7 5800X + AMD ATI Radeon RX 9060 XT | Gaming Rig |
+| tower   |  AMD Ryzen 7 5800X + AMD ATI Radeon RX 9060 XT | Gaming Rig |
