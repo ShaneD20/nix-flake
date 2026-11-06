@@ -17,6 +17,8 @@
       keep-outputs = true;        # protects active build dependancies (gc)
       keep-derivations = true;    # protects active build dependancies (gc)
       auto-optimise-store = true; # hard-link identical files (minimize store size)
+        # Note: optimise.automatic would run daily, only optimise on build/switch is preferred
+        # sudo nixos-rebuild switch && sudo nix-store --optimise
     };
     settings.experimental-features = [
       "nix-command" "flakes"
@@ -45,7 +47,7 @@
     zellij
     btop
     hwinfo
-    libreoffice
+    libreoffice-qt-fresh
   ];
 
   programs = {

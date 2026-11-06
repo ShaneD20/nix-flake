@@ -14,14 +14,21 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
-  boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-amd"];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [];
   
+
   hardware = {
     graphics.enable = true;      # OpenGL support
     graphics.enable32Bit = true; # 32 Bit apps
+    graphics.extraPackages = with pkgs; [
+      libva-vdpau-driver
+    ];
+
     amdgpu.opencl.enable = true;
     enableRedistributableFirmware = true;  # needed for 580 GPU
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

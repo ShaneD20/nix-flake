@@ -11,7 +11,7 @@
     };
   };
   environment.systemPackages = [
-    (pkgs.callPackage ./flying-snowflakes {})
+    (pkgs.callPackage ./org.sddm.snowflakes {})
     (pkgs.callPackage ./org.wall.snowflakes {})
   ];
 }

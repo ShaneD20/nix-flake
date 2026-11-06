@@ -14,7 +14,7 @@
     # VKD3D_FEATURE_LEVEL=12_0 %commands% # critical for Fromsoft (12 mirrors Direct x)
     # RADV_DEBUG=nofastclears,nohiz # AMD 580 relevants
   };
-  programs.gamemode.enable = true;  # 580 needs the help
+  programs.gamemode.enable = true;  # 580 needed the help
 
   environment.systemPackages = [ pkgs.steam-run ];
 
@@ -24,6 +24,4 @@
       "steam-original"
       "steam-run"
     ];
-    
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 }
