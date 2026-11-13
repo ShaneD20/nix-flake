@@ -30,10 +30,10 @@
     # TODO review security
 
   hardware = {
+    bluetooth.enable = false;  
     graphics.enable = true;      # OpenGL support
     graphics.enable32Bit = true; 
     enableRedistributableFirmware = true;
-    bluetooth.enable = false;  
   };
 
 #======================================== SERVICES
@@ -55,8 +55,14 @@
       jack.enable = false; # If you want to use JACK applications
     };
 
-    desktopManager.plasma6.enable = true;    
-    
+    desktopManager.plasma6.enable = true;  
+
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+      wayland.compositor = "kwin";
+      #theme = "";  
+    };
   };
 
 #======================================== screensharing

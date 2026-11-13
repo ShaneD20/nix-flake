@@ -8,8 +8,8 @@
   environment.systemPackages = with pkgs; [
     nettools dnsutils usbutils pciutils
     tree curl wget btop fastfetch    
-    zip unzip gcc ncdu
-
+    zip unzip ncdu
+    gcc
     alejandra
     gnumake 
     zellij
@@ -18,27 +18,14 @@
   ];
 
   programs = {
+    vim.enable = true;
+    tmux.enable = true;
     git = {
       enable = true;
-      #package = pkgs.git;
       lfs.enable = true;
-      config.init.defaultBranch = "main";
-      config.core.editor = "nano";
-    };
-
-    firefox = {
-      enable = true;
-      #package = pkgs.firefox;
-    };
-    vim = {
-      enable = true;
-      #package = pkgs.vim;
-    };
-    tmux = {
-      enable = true;
-      #package = pkgs.tmux;
     };
     chromium.enable = true; 
+    firefox.enable = true;
   };
 
   systemd.services.flatpak-repo = {

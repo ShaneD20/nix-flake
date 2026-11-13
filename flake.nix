@@ -29,13 +29,13 @@
 
     nixosConfigurations = listToAttrs (map (name: {
       inherit name;
-      value = import ./NIXHOST/${name}/default.nix {
+      value = import ./host/${name}/default.nix {
         specialArgs =
           inputs
           // {
             cleanVersion = builtins.head (builtins.match "([0-9]+\\.[0-9]+).*" nixpkgs.lib.version);
           };
       };
-    }) (attrNames (readDir ./NIXHOST)));
+    }) (attrNames (readDir ./host)));
   };
 }

@@ -14,10 +14,9 @@ specialArgs.nixpkgs.lib.nixosSystem {
     specialArgs.disko.nixosModules.disko
     ./disk-config.nix
 
-    ../../CORE
-    ../../GUI
-    ../../MIXIN/virtualization
-    ../../MIXIN/steam
-    ../../MIXIN/rust
+    ../../login
+    ../../nix-config
+    ../../mixin/virtualization.nix
+    ../../mixin/steam.nix
   ];
 }

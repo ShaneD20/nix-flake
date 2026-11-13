@@ -14,19 +14,12 @@
         nix
         nixos-rebuild
         nixVersions.latest
-        
         vim
-        home-manager
         gnumake
         alejandra
         disko
         pkg-config
-
-        #--c-----#
-        gcc gdb cmake valgrind
-
-        #--rust--#
-        # rustc cargo rust-analyzer clippy rustfmt
+        # home-manager
       ];
     };
 }
