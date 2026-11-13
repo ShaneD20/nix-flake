@@ -1,22 +1,21 @@
-{specialArgs, ...}:
-specialArgs.nixpkgs.lib.nixosSystem {
-  inherit specialArgs;
-  system = "x86_64-linux";
-  
-  modules = [
-    ./configuration.nix
-    ./hardware-configuration.nix
+{specialArgs, ...}: specialArgs.nixpkgs.lib.nixosSystem 
+{
+   inherit specialArgs;
 
-    #(import "${specialArgs.home-manager}/nixos")
-    #(import ../USER {stateVersion = specialArgs.cleanVersion;})
-    ../USER
+   system = "x86_64-linux";
 
-    specialArgs.disko.nixosModules.disko
-    ./disk-config.nix
+   modules = [
+      ./hardware-configuration.nix
+      ./network.nix
 
-    ../../login
-    ../../nix-config
-    ../../mixin/virtualization.nix
-    ../../mixin/steam.nix
-  ];
+      specialArgs.disko.nixosModules.disko
+      ./disk-config.nix
+
+      ../../mix/user
+      ../../mix/login
+      ../../mix/config
+      ../../mix/boxes
+      ../../mix/steam
+      ../../mix/firefox
+   ];
 }
