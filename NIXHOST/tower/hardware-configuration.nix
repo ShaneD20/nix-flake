@@ -21,7 +21,6 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [];
   
-
   hardware = {
     graphics.enable = true;      # OpenGL support
     graphics.enable32Bit = true; # 32 Bit apps

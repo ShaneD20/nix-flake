@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ config, pkgs, ... }:
 {
   networking.hostName = "tower";
   services.fwupd.enable = true;

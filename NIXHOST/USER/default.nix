@@ -20,6 +20,7 @@
   };
   
   home-manager.users.shane = {
+
     home.stateVersion = stateVersion;
     dconf.settings = lib.mkIf (config.virtualisation.libvirtd.enable) {
       "org/virt-manager/virt-manager/connections" = {
@@ -27,6 +28,7 @@
         uris = ["qemu:///system"];
       };
     };
+
     programs.git = {
       enable = true;
       settings.user.name = "Shane";
@@ -35,5 +37,29 @@
       settings.init.defaultBranch = "main";
       lfs.enable = true;
     };
+
+    programs.fastfetch = {
+      enable = true;
+      settings = {
+        logo = {
+          source = "none";
+        };
+        display = {
+          separator = " : ";
+        };
+        modules = [
+          "separator"
+          "os"
+          "host"
+          "kernel"
+          "packages"
+          "shell"
+          "cpu"
+          "gpu"
+          "memory"
+        ];
+      };
+    };
+
   };
 }

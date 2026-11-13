@@ -1,6 +1,5 @@
+{ config, pkgs, ... }: 
 {
-  config, pkgs, ...
-}: {
   imports = [
     ./unstable.nix
   ];
@@ -14,7 +13,7 @@
       dates = "*-02,06,10-01 5:00"; # every 4 months
     };
     settings = {
-      keep-outputs = true;        # protects active build dependancies (gc)
+      keep-outputs = false;       # derivations are more important (gc)
       keep-derivations = true;    # protects active build dependancies (gc)
       auto-optimise-store = true; # hard-link identical files (minimize store size)
         # Note: optimise.automatic would run daily, only optimise on build/switch is preferred
@@ -43,10 +42,10 @@
     alejandra
     gnumake 
     ncdu
-    hyfetch
     zellij
     btop
     hwinfo
+    gcc
     libreoffice-qt-fresh
   ];
 
