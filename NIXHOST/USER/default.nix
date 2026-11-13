@@ -1,65 +1,29 @@
-{stateVersion}: 
+#{stateVersion}: 
+{ pkgs, config, lib, ...}: 
 {
-  pkgs,
-  config,
-  lib,
-  ...
-}: {
-
-  users.users.shane = {
-    isNormalUser = true;
-    description = "Shane";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-
-      (lib.mkIf (config.virtualisation.libvirtd.enable) "libvirtd")
-      (lib.mkIf (config.virtualisation.virtualbox.host.enable) "vboxusers")
-      (lib.mkIf (config.virtualisation.docker.enable) "docker")
-    ];
+  programs.git.config.user = {
+    name = "Shane";
+    email = "sunset510@gmail.com";
   };
-  
-  home-manager.users.shane = {
 
-    home.stateVersion = stateVersion;
-    dconf.settings = lib.mkIf (config.virtualisation.libvirtd.enable) {
-      "org/virt-manager/virt-manager/connections" = {
-        autoconnect = ["qemu:///system"];
-        uris = ["qemu:///system"];
-      };
+  users.users = {
+    Shane = {
+      isNormalUser = true;
+      description = "Shane";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        (lib.mkIf (config.virtualisation.libvirtd.enable) "libvirtd")
+        (lib.mkIf (config.virtualisation.virtualbox.host.enable) "vboxusers")
+        (lib.mkIf (config.virtualisation.docker.enable) "docker")
+      ];
     };
-
-    programs.git = {
-      enable = true;
-      settings.user.name = "Shane";
-      settings.user.email = "sunset510@gmail.com";
-      settings.core.editor = "nano";
-      settings.init.defaultBranch = "main";
-      lfs.enable = true;
-    };
-
-    programs.fastfetch = {
-      enable = true;
-      settings = {
-        logo = {
-          source = "none";
-        };
-        display = {
-          separator = " : ";
-        };
-        modules = [
-          "separator"
-          "os"
-          "host"
-          "kernel"
-          "packages"
-          "shell"
-          "cpu"
-          "gpu"
-          "memory"
-        ];
-      };
-    };
-
   };
+  #programs.dconf.enable = true;
+  #programs.dconf.settings = lib.mkIf (config.virtualisation.libvirtd.enable) {
+  #  "org/virt-manager/virt-manager/connections" = {
+  #    autoconnect = ["qemu:///system"];
+  #    uris = ["qemu:///system"];
+  #  };
+  #};
 }

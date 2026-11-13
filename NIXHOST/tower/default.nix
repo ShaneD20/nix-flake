@@ -7,8 +7,9 @@ specialArgs.nixpkgs.lib.nixosSystem {
     ./configuration.nix
     ./hardware-configuration.nix
 
-    (import "${specialArgs.home-manager}/nixos")
-    (import ../USER {stateVersion = specialArgs.cleanVersion;})
+    #(import "${specialArgs.home-manager}/nixos")
+    #(import ../USER {stateVersion = specialArgs.cleanVersion;})
+    ../USER
 
     specialArgs.disko.nixosModules.disko
     ./disk-config.nix
