@@ -1,7 +1,7 @@
 { stdenvNoCC }:
 
 stdenvNoCC.mkDerivation {
-   pname = "plasma-wallpaper-flying-snowflakes";
+   pname = "plasma-wallpaper-flying-nixflakes";
    version = "1.0";
    src = ./.;
    dontBuild = true;
