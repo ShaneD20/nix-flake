@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
-   services.displayManager.sddm.theme = "flying-snowflakes";
+   services.displayManager.sddm.theme = "flying-nixflakes";
    environment.systemPackages = [
-      (pkgs.callPackage ./org.sddm.snowflakes {})
-      (pkgs.callPackage ./org.wall.snowflakes {})
+      (pkgs.callPackage ./org.sddm.nixflakes {})
+      (pkgs.callPackage ./org.wall.nixflakes {})
    ];
 }

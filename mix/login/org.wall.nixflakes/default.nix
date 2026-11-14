@@ -1,14 +1,14 @@
 { stdenvNoCC }:
 
 stdenvNoCC.mkDerivation {
-   pname = "plasma-wallpaper-flying-snowflakes";
+   pname = "plasma-wallpaper-flying-nixflakes";
    version = "1.0";
    src = ./.;
    dontBuild = true;
    dontWrapQtApps = true;
    installPhase = ''
       runHook preInstall
-      dir=$out/share/plasma/wallpapers/org.nixos.flyingsnowflakes
+      dir=$out/share/plasma/wallpapers/org.nixos.flyingnixflakes
       mkdir -p $dir
       cp -r metadata.json contents $dir/
       runHook postInstall

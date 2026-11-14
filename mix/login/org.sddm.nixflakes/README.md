@@ -16,14 +16,14 @@ Requires the **Qt 6** SDDM greeter (SDDM 0.20+, Qt 6.5+ for the glass blur).
 ```nix
 { pkgs, ... }:
 let
-  flying-snowflakes = pkgs.callPackage ./flying-snowflakes { };
+  flying-nixflakes = pkgs.callPackage ./flying-nixflakes { };
 in {
   services.displayManager.sddm = {
     enable = true;
     package = pkgs.kdePackages.sddm;      # Qt 6 greeter
-    theme = "flying-snowflakes";
+    theme = "flying-nixflakes";
   };
-  environment.systemPackages = [ flying-snowflakes ];
+  environment.systemPackages = [ flying-nixflakes ];
 
   # Fonts used by the theme (optional; falls back to the default sans/mono)
   fonts.packages = [
@@ -34,13 +34,13 @@ in {
 
 ## Other distros
 
-Copy this folder to `/usr/share/sddm/themes/flying-snowflakes` and set
-`Current=flying-snowflakes` under `[Theme]` in `/etc/sddm.conf.d/theme.conf`.
+Copy this folder to `/usr/share/sddm/themes/flying-nixflakes` and set
+`Current=flying-nixflakes` under `[Theme]` in `/etc/sddm.conf.d/theme.conf`.
 
 ## Preview without logging out
 
 ```sh
-sddm-greeter-qt6 --test-mode --theme /path/to/flying-snowflakes
+sddm-greeter-qt6 --test-mode --theme /path/to/flying-nixflakes
 ```
 
 In test mode the power buttons may be hidden and logging in does nothing.
