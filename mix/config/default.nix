@@ -2,13 +2,38 @@
 {
    imports = [
       ./plasma6.nix
+      ./settings.nix
       ./unstable.nix
    ];
 
+   programs = {
+      vim.enable = true;
+      nano.enable = true;
+      tmux.enable = true;
+      htop.enable = true;
+      git.enable = true;
+      git.lfs.enable = true;
+
+      wireshark.enable = true;
+      firefox.enable = true;
+      chromium.enable = true; 
+   };
+   # use if prebuilt binaries are not in nixpkgs
+   #programs.nix.ld.enable = true;
+   #programs.nix-ld.libraries = with pkgs; [];
+
    environment.systemPackages = with pkgs; [
-      nettools dnsutils usbutils pciutils
-      tree curl wget btop fastfetch    
-      zip unzip ncdu
+      curl 
+      nettools 
+      dnsutils 
+      usbutils 
+      pciutils
+      zip unzip 
+       
+      wget 
+      fastfetch    
+      tree 
+      ncdu
       gcc
       alejandra
       gnumake 
