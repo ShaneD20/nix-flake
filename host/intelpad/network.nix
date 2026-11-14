@@ -3,7 +3,7 @@
    networking = {
       networkmanager.enable = true;
       firewall.enable = true;
-      hostName = "thinkpad";
+      hostName = "intelpad";
    };
 
    time.timeZone = "America/Los_Angeles";
