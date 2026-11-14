@@ -37,19 +37,4 @@
    programs.kdeconnect.enable = true;
    xdg.portal.enable = true; #screen sharing | flatpak
    # remainder of xdg is handled by Plasma6 +
-
-   # install with best default theme
-   environment.etc."xdg/kdeglobals".text = ''
-      [General]
-      ColorScheme=BreezeDark
-      Name=Breeze Dark
-      
-      [KDE]
-      LookAndFeelPackage=org.breezedark.desktop
-   '';
-
-   environment.etc."xdg/plasmarc".text = ''
-      [Theme]
-      name=breeze-dark
-   '';
 }

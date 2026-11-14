@@ -20,7 +20,7 @@ update:
 
 nixos.install: check-env check-target
 	sudo nixos-install --flake .#${TARGET}
-	echo "Don't forget to run sudo nixos-enter to assign a password to davidnuon!"
+	echo "Don't forget to run sudo nixos-enter to assign a password to user!"
 
 nixos.run-disko: check-env check-target
 	sudo disko --mode destroy,format,mount ./host/${TARGET}/disk-config.nix

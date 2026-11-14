@@ -8,11 +8,10 @@ If you're on a non-NixOS system, you can run this command to install nix
 curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install | sh -s -- --daemon
 ```
 ## Installation
-Close the wizard and use this repo
+Close the wizard and use this repo via git.
 
 ```bash
 $ nix-shell -p git
-$ nix shell nixpkgs#get
 ```
 
 ### NixOS Build

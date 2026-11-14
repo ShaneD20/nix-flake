@@ -18,9 +18,9 @@
          auto-optimise-store = true; # hard-link identical files (minimize store size)
          # sudo nixos-rebuild switch && sudo nix-store --optimise (1st install)
          
-         # RAM usage
-         max-jobs = 3;  # how many packages build in parallel
-         cores = 3;     # how many threads each build may use
+         # RAM usage (jobs x cores x package.size)
+         max-jobs = 2;  # how many packages build in parallel
+         cores = 2;     # how many threads each build may use
       };
 
       daemonCPUSchedPolicy = "batch";
