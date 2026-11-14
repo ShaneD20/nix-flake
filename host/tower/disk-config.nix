@@ -17,7 +17,7 @@
 			};
 		
 			swap = {
-				size = "32G"; # 2G for a VM free system
+				size = "32G";
 				content = {
 					type = "swap";
 					resumeDevice = true; # Set to true if you plan to use hibernation
