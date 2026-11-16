@@ -23,6 +23,19 @@
       LC_TIME = "en_US.UTF-8";
    };
 
+   virtualisation = {
+      libvirtd.enable = true;
+      qemu = {
+         swtpm.enable = true;
+         ovmf.packages = [ pkgs.OVMFFull.fd ]; # UEFI support
+      };
+      spiceUSBRedirection.enable = true;
+   };
+   environment.systemPackages = with pkgs; [
+      gnome-boxes
+      dnsmasq
+   ];
+
    environment.systemPackages = with pkgs; [lact nvtopPackages.amd];
    systemd.packages = with pkgs; [lact nvtopPackages.amd];
    systemd.services.lactd.wantedBy = ["multi-user.target"];
